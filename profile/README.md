@@ -141,6 +141,10 @@ requirements per project (240 requirements total).
 | Kimi | 71.7% | 20 | 0 |
 | MiniMax | 60.0% | 29 | 0 |
 
+<div align="center">
+<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/eval-accuracy.png" width="600" alt="Structural accuracy by project and model">
+</div>
+
 **Zero hallucinations across all 240 evaluated requirements**, though
 reliability varies by project and model — see the
 [associated paper](https://arxiv.org/abs/2606.06662) for the full
