@@ -21,19 +21,19 @@ Artificial Intelligence (FCAI), Cairo University**, developed under the
 technical mentorship of **Siemens Egypt** and the supervision of
 **Dr. Mohammad El-Ramly**.
 
-Writing CI/CD configuration by hand is slow and easy to get wrong — you have
-to learn platform-specific YAML, guess at the right actions/versions, and
-debug failures one push at a time. AutoPipelineAI does this instead: point it
-at a real codebase, describe what you want in plain English, and a multi-agent
-LLM system analyzes your project, plans a pipeline, generates GitHub Actions
-or GitLab CI YAML, validates it with real linters, and **self-corrects**
-until it's valid — all streamed to you live, with you approving every shell
-command and file write along the way.
+Writing CI/CD configuration by hand is slow and easy to get wrong: you have to
+learn platform-specific YAML, guess at the right actions and versions, and
+debug failures one push at a time. AutoPipelineAI does that work for you.
+Point it at a real codebase, describe what you want in plain English, and a
+multi-agent LLM system analyzes your project, plans a pipeline, generates
+GitHub Actions or GitLab CI YAML, validates it with real linters, and
+**self-corrects** until it is valid. The whole process streams to you live,
+and you approve every shell command and file write along the way.
 
-It's delivered as a **three-tier desktop product** (Electron/Next.js client →
-NestJS backend-for-frontend → FastAPI multi-agent engine), split across the
-three repositories in this organization and composed into one runnable app by
-the [`AutoPipeline`](https://github.com/Auto-Pipeline-AI/AutoPipeline)
+It is delivered as a **three-tier desktop product** (an Electron / Next.js
+client, a NestJS backend-for-frontend, and a FastAPI multi-agent engine),
+split across the three repositories in this organization and composed into one
+runnable app by the [`AutoPipeline`](https://github.com/Auto-Pipeline-AI/AutoPipeline)
 launcher.
 
 <div align="center">
@@ -51,10 +51,10 @@ launcher.
 
 ## 🚀 Start here
 
-You don't need to touch the three repos individually — the
-[**`AutoPipeline`**](https://github.com/Auto-Pipeline-AI/AutoPipeline) repo is
-a one-command launcher that clones all three, installs everything, and runs
-them together as a single desktop app:
+You don't need to touch the three repos individually. The
+[**`AutoPipeline`**](https://github.com/Auto-Pipeline-AI/AutoPipeline) repo is a
+one-command launcher that clones all three, installs everything, and runs them
+together as a single desktop app:
 
 ```bash
 git clone https://github.com/Auto-Pipeline-AI/AutoPipeline.git
@@ -63,8 +63,8 @@ npm run setup   # clone the 3 app repos + install dependencies
 npm start       # launch agent + backend + frontend + the desktop window
 ```
 
-You pick a provider and paste a key
-inside the app itself, encrypted in your OS keychain.
+You pick a provider and paste a key inside the app itself, encrypted in your OS
+keychain.
 
 <div align="center">
 <img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/screenshot-home.png" width="47%" alt="Project picker (dark theme)">
@@ -76,10 +76,10 @@ inside the app itself, encrypted in your OS keychain.
 
 ## 🏗️ Architecture
 
-A deterministic Supervisor (zero LLM calls) routes between specialized
-agents — Planner, Analyzer, Researcher, Generator, Validator, Writer — on a
-LangGraph graph. The backend is a thin proxy and persistence layer; the
-frontend never talks to the agent directly.
+A deterministic Supervisor (zero LLM calls) routes between specialized agents
+(Planner, Analyzer, Researcher, Generator, Validator, Writer) on a LangGraph
+graph. The backend is a thin proxy and persistence layer, and the frontend
+never talks to the agent directly.
 
 <div align="center">
 <img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/architecture.svg" width="640" alt="AutoPipeline three-tier architecture">
@@ -89,25 +89,25 @@ frontend never talks to the agent directly.
 
 | Repo | Role | Port |
 |---|---|---|
-| [**AutoPipeline**](https://github.com/Auto-Pipeline-AI/AutoPipeline) | One-command launcher — clones & runs the other three as one app | n/a |
-| [**agent**](https://github.com/Auto-Pipeline-AI/agent) | Multi-agent LLM engine (Python/FastAPI) — analyzes, plans, generates, validates, self-corrects | `:8000` |
-| [**backend**](https://github.com/Auto-Pipeline-AI/backend) | Backend-for-frontend (NestJS) — sessions, persistence, NDJSON proxy, model catalog | `:3333` |
-| [**frontend**](https://github.com/Auto-Pipeline-AI/frontend) | Desktop client (Next.js + Electron) — streaming chat UI, HITL prompts, key storage | `:3001` |
+| [**AutoPipeline**](https://github.com/Auto-Pipeline-AI/AutoPipeline) | One-command launcher: clones and runs the other three as one app | n/a |
+| [**agent**](https://github.com/Auto-Pipeline-AI/agent) | Multi-agent LLM engine (Python/FastAPI): analyzes, plans, generates, validates, self-corrects | `:8000` |
+| [**backend**](https://github.com/Auto-Pipeline-AI/backend) | Backend-for-frontend (NestJS): sessions, persistence, NDJSON proxy, model catalog | `:3333` |
+| [**frontend**](https://github.com/Auto-Pipeline-AI/frontend) | Desktop client (Next.js + Electron): streaming chat UI, HITL prompts, key storage | `:3001` |
 
 ---
 
 ## ✨ Features
 
-- **Multi-agent engine** — Planner, Analyzer, Researcher, Generator, Validator, and Writer agents orchestrated by a deterministic, zero-LLM Supervisor.
-- **Repository-aware** — the Analyzer inspects your actual build files, test runners, and deploy configs so pipelines are grounded in reality, not guesses.
-- **Self-correcting reflexion loop** — generated YAML is linted with `actionlint` (GitHub Actions) or the GitLab CI Lint API, and regenerated automatically on failure.
-- **Live web research** — a ReAct Researcher agent looks up current action versions and syntax rather than relying on stale training data.
-- **Multi-platform** — GitHub Actions and GitLab CI, from the same natural-language prompt.
-- **Multi-provider LLMs** — OpenAI, Anthropic, Google Gemini, Groq, or any OpenAI-compatible endpoint (Ollama, vLLM, LM Studio); provider/model/key are supplied per-request.
-- **Real-time NDJSON streaming** — see reasoning tokens, tool calls, plans, and YAML drafts as they happen, not just the final result.
-- **Human-in-the-loop** — explicit approval gates before running shell commands or writing files to disk.
-- **Security by design** — commands are classified safe/modifying/dangerous before execution, and streamed payloads are scanned with entropy-based secret detection.
-- **Desktop-native** — Electron provides a project folder picker, OS-keychain-encrypted API key storage, and a file-save bridge.
+- **Multi-agent engine**: Planner, Analyzer, Researcher, Generator, Validator, and Writer agents orchestrated by a deterministic, zero-LLM Supervisor.
+- **Repository-aware**: the Analyzer inspects your actual build files, test runners, and deploy configs so pipelines are grounded in reality, not guesses.
+- **Self-correcting reflexion loop**: generated YAML is linted with `actionlint` (GitHub Actions) or the GitLab CI Lint API, and regenerated automatically on failure.
+- **Live web research**: a ReAct Researcher agent looks up current action versions and syntax rather than relying on stale training data.
+- **Multi-platform**: GitHub Actions and GitLab CI, from the same natural-language prompt.
+- **Multi-provider LLMs**: OpenAI, Anthropic, Google Gemini, Groq, or any OpenAI-compatible endpoint (Ollama, vLLM, LM Studio); provider, model, and key are supplied per-request.
+- **Real-time NDJSON streaming**: see reasoning tokens, tool calls, plans, and YAML drafts as they happen, not just the final result.
+- **Human-in-the-loop**: explicit approval gates before running shell commands or writing files to disk.
+- **Security by design**: commands are classified safe / modifying / dangerous before execution, and streamed payloads are scanned with entropy-based secret detection.
+- **Desktop-native**: Electron provides a project folder picker, OS-keychain-encrypted API key storage, and a file-save bridge.
 
 ---
 
@@ -125,55 +125,65 @@ frontend never talks to the agent directly.
 ## 📊 Evaluation
 
 The pipeline-generation capability was evaluated end-to-end on **six
-open-source repositories** across four languages (Click & Peewee — Python,
-Hugo — Go, p-limit & Vite — JS/TS, Rustlings — Rust) using **four LLMs**
-(GLM, Qwen, Kimi, MiniMax), against 10 repository-specific functional
-requirements per project (240 requirements total).
+open-source repositories** across four languages (Click and Peewee in Python,
+Hugo in Go, p-limit and Vite in JS/TS, Rustlings in Rust) using **four LLMs**
+(GLM, Qwen, Kimi, MiniMax). Each project was judged against 10 repository-specific
+functional requirements (240 requirements in total), asking a concrete question
+of every one: does the generated pipeline actually do what was asked?
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/eval-pass-rate.png" width="500" alt="Overall functional pass rate by model">
+<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/eval-pass-rate.png" width="520" alt="Overall functional pass rate by model">
 </div>
 
-| Model | Pass rate | Errors | Hallucinations |
-|---|---|---|---|
-| GLM | **78.3%** | 19 | 0 |
-| Qwen | 75.0% | 18 | 0 |
-| Kimi | 71.7% | 20 | 0 |
-| MiniMax | 60.0% | 29 | 0 |
+<table align="center">
+<tr><th>Model</th><th>Pass rate</th><th>Errors</th><th>Hallucinations</th></tr>
+<tr><td>GLM</td><td><b>78.3%</b></td><td>19</td><td>0</td></tr>
+<tr><td>Qwen</td><td>75.0%</td><td>18</td><td>0</td></tr>
+<tr><td>Kimi</td><td>71.7%</td><td>20</td><td>0</td></tr>
+<tr><td>MiniMax</td><td>60.0%</td><td>29</td><td>0</td></tr>
+</table>
+
+Reliability varies by project and model, so the per-project breakdown matters:
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/eval-accuracy.png" width="600" alt="Structural accuracy by project and model">
+<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/eval-functional-by-project.png" width="640" alt="Functional pass rate by project and model">
 </div>
-
-**Zero hallucinations across all 240 evaluated requirements**, though
-reliability varies by project and model — see the
-[associated paper](https://arxiv.org/abs/2606.06662) for the full
-per-project breakdown and structural-accuracy analysis.
 
 ### Why zero hallucinations?
 
-It's not luck — it's that no single component is trusted to "just be right."
-Every stage either grounds the model in something real or checks its output
-against something real before it moves forward: the Analyzer reads your
-actual repo instead of guessing, the Researcher pulls live docs instead of
-relying on stale training data, output is forced through a structured schema
-instead of free-form text, and — most importantly — the Generator's YAML is
-never taken on faith. It's linted by **real tools** (`actionlint`, the
-GitLab CI Lint API), and on failure the concrete lint errors are fed back
-into a bounded reflexion loop that regenerates until the output is valid or
-the retry limit is hit. Nothing reaches the Writer, and nothing is written
-to disk, until it has survived that gate.
+Across all 240 evaluated requirements, **not one model hallucinated**. The
+error breakdown makes the point clearly: every failure was a Configuration
+Error or an Omission (a missing step), never an invented action, tool, or fact.
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/hallucination-defense.svg" width="720" alt="Why zero hallucinations — defensive layers of the agent graph">
+<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/eval-error-distribution.png" width="600" alt="Error-type distribution per model; the Hallucination row is zero everywhere">
 </div>
+
+That result is by design, not luck. No single component is trusted to be
+correct on its own; every stage either grounds the model in something real or
+checks its output against something real before the run moves forward. The
+Analyzer reads your actual repo instead of guessing, the Researcher pulls live
+docs instead of relying on stale training data, and structured-output schemas
+keep responses on rails instead of free-form text. Most importantly, the
+Generator's YAML is never taken on faith: it is linted by **real tools**
+(`actionlint`, the GitLab CI Lint API), and on failure the concrete errors are
+fed back into a bounded reflexion loop that regenerates until the output is
+valid or the retry limit is hit. Nothing reaches the Writer, and nothing is
+written to disk, until it has survived that gate.
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/agent-graph.svg" width="820" alt="Multi-agent orchestration graph: a deterministic Supervisor routes between LLM and non-LLM nodes">
+</div>
+
+See the [associated paper](https://arxiv.org/abs/2606.06662) for the full
+per-project results.
 
 ---
 
 ## ✅ Testing
 
 Each service ships its own hermetic, boundary-mocked test suite that runs in
-CI — **459 automated tests** in total:
+CI. Together they add up to **459 automated tests**:
 
 | Service | Framework | Tests | Coverage |
 |---|---|---|---|
@@ -185,10 +195,10 @@ CI — **459 automated tests** in total:
 
 ## 🔒 Security
 
-LLM API keys are supplied per-request and stored encrypted in the OS
-keychain — never committed or logged. Shell commands are classified
-safe/modifying/dangerous and gated behind an explicit human approval prompt,
-and file writes require the same. All streamed payloads pass through
+LLM API keys are supplied per-request and stored encrypted in the OS keychain,
+and are never committed or logged. Shell commands are classified
+safe / modifying / dangerous and gated behind an explicit human approval
+prompt, and file writes require the same. All streamed payloads pass through
 entropy-based secret redaction before reaching the UI.
 
 ---
@@ -199,9 +209,9 @@ Built by Youssef Mohamed, Mohamed Ahmed Hemdan, Mahmoud Saleh Saad, Ahmed
 Mohamed Tolba, and Seif Gamal Abdelmonem, supervised by
 **Dr. Mohammad El-Ramly** (FCAI, Cairo University).
 
-The project is also written up as a research paper —
+The project is also written up as a research paper,
 *"AutoPipelineAI: Context-Aware CI/CD Pipeline Generation from Natural
-Language"* — available on [arXiv (2606.06662)](https://arxiv.org/abs/2606.06662).
+Language"*, available on [arXiv (2606.06662)](https://arxiv.org/abs/2606.06662).
 
 ---
 
