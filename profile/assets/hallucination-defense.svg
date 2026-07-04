@@ -1,0 +1,79 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <defs>
+    <marker id="garrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#AFAFAF"/>
+    </marker>
+    <marker id="iarrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3457D5"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <text x="40" y="55" font-size="34" font-weight="700" fill="#0E0E10">Why Zero Hallucinations</text>
+  <text x="40" y="82" font-size="16" font-family="Courier New, monospace" fill="#70707A">every layer of the agent graph is defensive, not just the prompt</text>
+
+  <!-- connecting lines (drawn first, under boxes) -->
+  <line x1="800" y1="210" x2="800" y2="378" stroke="#AFAFAF" stroke-width="2.5" marker-end="url(#garrow)" marker-start="url(#garrow)"/>
+  <line x1="800" y1="522" x2="800" y2="690" stroke="#AFAFAF" stroke-width="2.5" marker-end="url(#garrow)" marker-start="url(#garrow)"/>
+  <line x1="404" y1="215" x2="655" y2="405" stroke="#AFAFAF" stroke-width="2.5" marker-end="url(#garrow)" marker-start="url(#garrow)"/>
+  <line x1="404" y1="450" x2="648" y2="450" stroke="#AFAFAF" stroke-width="2.5" marker-end="url(#garrow)" marker-start="url(#garrow)"/>
+  <line x1="404" y1="655" x2="655" y2="495" stroke="#AFAFAF" stroke-width="2.5" marker-end="url(#garrow)" marker-start="url(#garrow)"/>
+  <line x1="1196" y1="300" x2="948" y2="410" stroke="#AFAFAF" stroke-width="2.5" marker-end="url(#garrow)" marker-start="url(#garrow)"/>
+  <line x1="1196" y1="545" x2="948" y2="495" stroke="#AFAFAF" stroke-width="2.5" marker-end="url(#garrow)" marker-start="url(#garrow)"/>
+
+  <!-- Generator -> Validator retry loop -->
+  <line x1="1370" y1="330" x2="1370" y2="468" stroke="#3457D5" stroke-width="3" marker-end="url(#iarrow)"/>
+  <text x="1382" y="390" font-size="13" font-family="Courier New, monospace" font-weight="700" fill="#3457D5">retry on</text>
+  <text x="1382" y="408" font-size="13" font-family="Courier New, monospace" font-weight="700" fill="#3457D5">lint errors</text>
+
+  <!-- Center hub -->
+  <rect x="650" y="380" width="300" height="140" rx="16" fill="#0E0E10"/>
+  <text x="800" y="432" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff">REFLEXION LOOP</text>
+  <text x="800" y="456" text-anchor="middle" font-size="13" font-family="Courier New, monospace" fill="#C9CDD8">regenerate until valid,</text>
+  <text x="800" y="474" text-anchor="middle" font-size="13" font-family="Courier New, monospace" fill="#C9CDD8">bounded retry limit</text>
+  <text x="800" y="502" text-anchor="middle" font-size="15" font-family="Courier New, monospace" font-weight="700" fill="#5B8DEF">0 hallucinations · 240/240 reqs</text>
+
+  <!-- HITL top -->
+  <rect x="650" y="110" width="300" height="100" rx="14" fill="#EAF7EF" stroke="#0E0E10" stroke-width="1.5"/>
+  <text x="800" y="148" text-anchor="middle" font-size="18" font-weight="700" fill="#0E0E10">Human-in-the-Loop</text>
+  <text x="800" y="172" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#1F9D5B">explicit approval before any</text>
+  <text x="800" y="190" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#1F9D5B">shell exec or file write</text>
+
+  <!-- Writer bottom -->
+  <rect x="650" y="690" width="300" height="100" rx="14" fill="#ffffff" stroke="#0E0E10" stroke-width="1.5"/>
+  <text x="800" y="728" text-anchor="middle" font-size="18" font-weight="700" fill="#0E0E10">Writer</text>
+  <text x="800" y="752" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#70707A">saves only YAML that</text>
+  <text x="800" y="770" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#70707A">already passed validation</text>
+
+  <!-- Analyzer left top -->
+  <rect x="60" y="145" width="345" height="100" rx="14" fill="#ffffff" stroke="#0E0E10" stroke-width="1.5"/>
+  <text x="232" y="183" text-anchor="middle" font-size="18" font-weight="700" fill="#0E0E10">Analyzer</text>
+  <text x="232" y="207" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#70707A">ReAct · reads your real files,</text>
+  <text x="232" y="225" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#70707A">not assumptions</text>
+
+  <!-- Researcher left mid -->
+  <rect x="60" y="400" width="345" height="100" rx="14" fill="#ffffff" stroke="#0E0E10" stroke-width="1.5"/>
+  <text x="232" y="438" text-anchor="middle" font-size="18" font-weight="700" fill="#0E0E10">Researcher</text>
+  <text x="232" y="462" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#70707A">ReAct · live web search for</text>
+  <text x="232" y="480" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#70707A">current syntax, not stale memory</text>
+
+  <!-- Structured output left bottom -->
+  <rect x="60" y="605" width="345" height="100" rx="14" fill="#ffffff" stroke="#0E0E10" stroke-width="1.5"/>
+  <text x="232" y="643" text-anchor="middle" font-size="18" font-weight="700" fill="#0E0E10">Structured Output</text>
+  <text x="232" y="667" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#70707A">Pydantic-enforced schema,</text>
+  <text x="232" y="685" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#70707A">not free-form text</text>
+
+  <!-- Generator right top -->
+  <rect x="1195" y="230" width="345" height="100" rx="14" fill="#EEF1FC" stroke="#3457D5" stroke-width="1.5"/>
+  <text x="1367" y="268" text-anchor="middle" font-size="18" font-weight="700" fill="#0E0E10">Generator</text>
+  <text x="1367" y="292" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#3457D5">drafts YAML strictly from</text>
+  <text x="1367" y="310" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#3457D5">the grounded plan</text>
+
+  <!-- Validator right bottom -->
+  <rect x="1195" y="470" width="345" height="100" rx="14" fill="#EEF1FC" stroke="#3457D5" stroke-width="1.5"/>
+  <text x="1367" y="508" text-anchor="middle" font-size="18" font-weight="700" fill="#0E0E10">Validator</text>
+  <text x="1367" y="532" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#3457D5">actionlint / GitLab Lint —</text>
+  <text x="1367" y="550" text-anchor="middle" font-size="12" font-family="Courier New, monospace" fill="#3457D5">real tools, not LLM judgment</text>
+
+  <text x="800" y="850" text-anchor="middle" font-size="14" font-family="Courier New, monospace" fill="#70707A">Ungrounded or invalid output gets caught and corrected here — never shipped forward.</text>
+</svg>

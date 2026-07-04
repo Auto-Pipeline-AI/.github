@@ -89,7 +89,7 @@ frontend never talks to the agent directly.
 
 | Repo | Role | Port |
 |---|---|---|
-| [**AutoPipeline**](https://github.com/Auto-Pipeline-AI/AutoPipeline) | One-command launcher — clones & runs the other three as one app | — |
+| [**AutoPipeline**](https://github.com/Auto-Pipeline-AI/AutoPipeline) | One-command launcher — clones & runs the other three as one app | n/a |
 | [**agent**](https://github.com/Auto-Pipeline-AI/agent) | Multi-agent LLM engine (Python/FastAPI) — analyzes, plans, generates, validates, self-corrects | `:8000` |
 | [**backend**](https://github.com/Auto-Pipeline-AI/backend) | Backend-for-frontend (NestJS) — sessions, persistence, NDJSON proxy, model catalog | `:3333` |
 | [**frontend**](https://github.com/Auto-Pipeline-AI/frontend) | Desktop client (Next.js + Electron) — streaming chat UI, HITL prompts, key storage | `:3001` |
@@ -150,6 +150,24 @@ reliability varies by project and model — see the
 [associated paper](https://arxiv.org/abs/2606.06662) for the full
 per-project breakdown and structural-accuracy analysis.
 
+### Why zero hallucinations?
+
+It's not luck — it's that no single component is trusted to "just be right."
+Every stage either grounds the model in something real or checks its output
+against something real before it moves forward: the Analyzer reads your
+actual repo instead of guessing, the Researcher pulls live docs instead of
+relying on stale training data, output is forced through a structured schema
+instead of free-form text, and — most importantly — the Generator's YAML is
+never taken on faith. It's linted by **real tools** (`actionlint`, the
+GitLab CI Lint API), and on failure the concrete lint errors are fed back
+into a bounded reflexion loop that regenerates until the output is valid or
+the retry limit is hit. Nothing reaches the Writer, and nothing is written
+to disk, until it has survived that gate.
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/hallucination-defense.svg" width="720" alt="Why zero hallucinations — defensive layers of the agent graph">
+</div>
+
 ---
 
 ## ✅ Testing
@@ -160,8 +178,8 @@ CI — **459 automated tests** in total:
 | Service | Framework | Tests | Coverage |
 |---|---|---|---|
 | Agent | pytest | 310 (265 unit + 45 integration) | 84% |
-| Backend | Jest | 106 unit | — |
-| Frontend | Vitest | 43 unit | 87% |
+| Backend | Jest | 106 unit | 87% |
+| Frontend | Vitest | 43 unit | 86% |
 
 ---
 
