@@ -63,7 +63,7 @@ npm run setup   # clone the 3 app repos + install dependencies
 npm start       # launch agent + backend + frontend + the desktop window
 ```
 
-No LLM API key is needed to launch — you pick a provider and paste a key
+You pick a provider and paste a key
 inside the app itself, encrypted in your OS keychain.
 
 <div align="center">
