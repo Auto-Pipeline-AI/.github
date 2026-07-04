@@ -39,11 +39,11 @@ launcher.
 <div align="center">
 <sub>with thanks to</sub><br/><br/>
 
-<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/logo-cairo-university.png" height="70" alt="Cairo University">
-&nbsp;&nbsp;&nbsp;
-<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/logo-fcai.png" height="70" alt="FCAI">
-&nbsp;&nbsp;&nbsp;
-<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/logo-siemens.png" height="45" alt="Siemens">
+<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/logo-cairo-university.png" height="80" alt="Cairo University">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/logo-fcai.png" height="80" alt="FCAI">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/logo-siemens.png" height="50" alt="Siemens">
 
 </div>
 
@@ -82,7 +82,7 @@ LangGraph graph. The backend is a thin proxy and persistence layer; the
 frontend never talks to the agent directly.
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/architecture.png" width="700" alt="AutoPipeline three-tier architecture">
+<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/architecture.svg" width="640" alt="AutoPipeline three-tier architecture">
 </div>
 
 ## 📦 Repositories
