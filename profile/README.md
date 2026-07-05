@@ -218,3 +218,19 @@ Language"*, available on [arXiv (2606.06662)](https://arxiv.org/abs/2606.06662).
 <div align="center">
 <sub>All three services are MIT licensed.</sub>
 </div>
+
+---
+
+## 🎬 See it in action
+
+One prompt turns into a validated GitHub Actions pipeline — the agent analyzes
+the repo, plans, streams the reasoning and YAML live, self-corrects, and asks
+for approval before writing the file:
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Auto-Pipeline-AI/.github/main/profile/assets/demo.gif" width="820" alt="AutoPipelineAI generating a CI/CD pipeline end to end">
+</div>
+
+<div align="center">
+<img src="https://count.getloli.com/@auto-pipeline-ai?theme=rule34" alt="visitor counter">
+</div>
