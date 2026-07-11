@@ -224,7 +224,7 @@ Language"*, available on [arXiv (2606.06662)](https://arxiv.org/abs/2606.06662).
 
 ## 🎬 See it in action
 
-One prompt turns into a validated GitHub Actions pipeline — the agent analyzes
+One prompt turns into a validated GitHub Actions pipeline: the agent analyzes
 the repo, plans, streams the reasoning and YAML live, self-corrects, and asks
 for approval before writing the file:
 
