@@ -5,6 +5,7 @@
 
 ### Turn a plain-English sentence into a validated CI/CD pipeline.
 
+[![Latest release](https://img.shields.io/github/v/release/Auto-Pipeline-AI/AutoPipeline?label=latest%20release&color=0E0E10&logo=github)](https://github.com/Auto-Pipeline-AI/AutoPipeline/releases/latest)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1F9D5B)](https://github.com/Auto-Pipeline-AI/AutoPipeline/blob/main/LICENSE)
 [![Paper](https://img.shields.io/badge/paper-arXiv%3A2606.06662-3457D5)](https://arxiv.org/abs/2606.06662)
 [![Tests](https://img.shields.io/badge/tests-459%20passing-1F9D5B)](#-testing)
